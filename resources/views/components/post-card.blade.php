@@ -9,9 +9,7 @@
         <div>
             <header class="mt-4">
                 <div class="space-x-2">
-                    <a class="text-blue-300 border border-blue-300 px-3 py-1 rounded-full uppercase font-semibold text-xs" href="#">
-                        {{ $post->category->name }}
-                    </a>
+                    <x-category-button :category="$post->category" />
                 </div>
                 <div class="mt-4">
                     <a href="posts/{{ $post->slug }}">

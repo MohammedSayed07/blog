@@ -12,7 +12,7 @@
     <nav class="md:flex md:justify-between md:items-center">
         <div>
             <a href="/">
-                <img src="images/icon.png" alt="LOGO" width="90">
+                <img src="/images/icon.png" alt="LOGO" width="90">
             </a>
         </div>
         <div class="mt-4">
@@ -29,7 +29,7 @@
 
     <footer class="max-w-6xl mx-auto mt-16 bg-gray-100 border border-black border-opacity-5 rounded-xl px-12 py-12 text-center">
         <div>
-            <img class="mx-auto rounded-xl" src="images/head.png" width="128"/>
+            <img class="mx-auto rounded-xl" src="/images/head.png" width="128"/>
 
             <h1 class="text-2xl mt-4">Stay in touch with the latest updates</h1>
 
