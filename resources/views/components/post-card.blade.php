@@ -4,7 +4,7 @@
     {{ $attributes->merge(['class' => 'transition-all duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
     <div class="px-5 py-6">
         <div class="mr-8">
-            <img class="rounded-xl" src="images/blog-photo.jpg" alt="blog-photo"/>
+            <img class="rounded-xl" src="/images/blog-photo.jpg" alt="blog-photo"/>
         </div>
         <div>
             <header class="mt-4">
@@ -12,7 +12,7 @@
                     <x-category-button :category="$post->category" />
                 </div>
                 <div class="mt-4">
-                    <a href="posts/{{ $post->slug }}">
+                    <a href="/posts/{{ $post->slug }}">
                         <h1 class="text-3xl">
                             {{ $post->title }}
                         </h1>
@@ -28,9 +28,9 @@
             </section>
             <footer class="mt-8 flex justify-between items-center">
                 <div class="flex items-center text-sm">
-                    <img class="rounded-3xl" src="images/head.png" width="64" alt="logo"/>
+                    <img class="rounded-3xl" src="/images/head.png" width="64" alt="logo"/>
                     <div class="ml-3">
-                        <a href="authors/{{ $post->author->username }}">
+                        <a href="/authors/{{ $post->author->username }}">
                             <h5 class="font-bold">
                                 {{ $post->author->name }}
                             </h5>
