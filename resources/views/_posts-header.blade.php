@@ -7,27 +7,7 @@
         <div
             class="flex md:flex-row flex-col lg:justify-center lg:items-center lg:space-x-5 mt-5 space-y-2 lg:space-y-0">
             <div class="bg-gray-100 rounded-xl inline-flex items-center relative w-full">
-                <x-dropdown>
-                    <x-slot name="trigger">
-                        <button class="w-full py-3 pr-16 pl-4 text-sm font-semibold lg:inline-flex block text-left"
-                                @click.outside="show = false">
-                            {{ request('category') !== null ? ucwords(request('category')) : 'Categories' }}
-
-                            <x-icon name="down-arrow" class="absolute right-5 top-2.5 pointer-events-none"/>
-                        </button>
-                    </x-slot>
-
-                    <x-dropdown-item href="/" :active="!request('category')">
-                        All
-                    </x-dropdown-item>
-
-                    @foreach($categories as $category)
-                        <x-dropdown-item href="?category={{ $category->slug }}"
-                                         :active="request('category') === $category->slug">
-                            {{ ucwords($category->name) }}
-                        </x-dropdown-item>
-                    @endforeach
-                </x-dropdown>
+                <x-category-dropdown />
             </div>
 
             <div class="bg-gray-100 rounded-xl inline-flex items-center relative">
