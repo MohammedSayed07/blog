@@ -1,5 +1,5 @@
 <x-layout>
-    @include('_posts-header')
+    @include('posts._header')
     <main class="max-w-6xl mx-auto mt-14 space-y-8">
         @if($posts->count())
             <x-post-featured-card :post="$posts[0]"/>

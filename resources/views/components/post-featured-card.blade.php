@@ -33,7 +33,7 @@
                 <div class="flex items-center text-sm">
                     <img class="rounded-3xl" src="/images/head.png" width="64" alt="logo"/>
                     <div class="ml-3">
-                        <a href="/authors/{{ $post->author->username }}">
+                        <a href="/?author={{ $post->author->username }}">
                             <h5 class="font-bold">
                                 {{ $post->author->name }}
                             </h5>
