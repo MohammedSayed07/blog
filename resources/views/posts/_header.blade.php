@@ -18,6 +18,10 @@
                         data-name="49-Search"/>
                 </svg>
                 <form method="GET">
+                    @if(request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+
                     <input
                         class="transition-all duration-300 focus-within:outline-none appearance-none bg-transparent py-3 pr-8 pl-10 text-sm font-semibold placeholder-black"
                         placeholder="Find something?" type="text" name="search" value="{{ request('search') }}">
