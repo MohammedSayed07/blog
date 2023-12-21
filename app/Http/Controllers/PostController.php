@@ -18,7 +18,8 @@ class PostController extends Controller
             'posts' => Post::with('category', 'author')
                 ->latest()
                 ->filter(request(['search', 'category', 'author']))
-                ->simplePaginate()
+                ->simplePaginate(9)
+                ->withQueryString()
         ]);
     }
     public function show(Post $post)
