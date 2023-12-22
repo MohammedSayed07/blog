@@ -22,6 +22,6 @@ class RegisterController extends Controller
             'password' => ['required', 'min:7', 'max:255'],
         ]));
 
-        return redirect('/');
+        return redirect('/')->with('success', 'User Has Been Created Successfully!');
     }
 }
