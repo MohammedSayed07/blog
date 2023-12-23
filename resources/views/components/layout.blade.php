@@ -16,10 +16,24 @@
                 <img src="/images/icon.png" alt="LOGO" width="90">
             </a>
         </div>
-        <div class="mt-4">
-            <a href="/" class="transition-all duration-300 text-xs font-bold uppercase px-2 py-2 border border-black border-opacity-0 hover:border-opacity-100 rounded-2xl">
-                HomePage
-            </a>
+        <div class="mt-4 flex items-center">
+            @guest
+                <a href="/register" class="transition-all duration-300 text-xs font-bold uppercase px-2 py-2 border border-black border-opacity-0 hover:border-opacity-100 rounded-2xl">
+                    Register
+                </a>
+
+                <a href="/login" class="ml-3 transition-all duration-300 text-xs font-bold uppercase px-2 py-2 border border-black border-opacity-0 hover:border-opacity-100 rounded-2xl">
+                    Log in
+                </a>
+            @else
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button class="transition-all duration-300 text-xs font-bold uppercase px-2 py-2 border border-black border-opacity-0 hover:border-opacity-100 rounded-2xl">
+                        Log Out
+                    </button>
+                </form>
+            @endguest
+
             <a href="#" class="transition-all duration-300 bg-blue-500 hover:bg-blue-600 ml-3 rounded-full text-xs font-semibold text-white uppercase px-5 py-3">
                 Subscribe for Updates
             </a>
