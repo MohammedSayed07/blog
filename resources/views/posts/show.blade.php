@@ -47,9 +47,10 @@
                 </div>
 
                 <section class="col-start-4 col-span-8 mt-14 space-y-3">
-                    <x-post-comment />
-                    <x-post-comment />
-                    <x-post-comment />
+                    @foreach($post->comments as $comment)
+                        <x-post-comment :comment="$comment"/>
+                    @endforeach
+
                 </section>
             </article>
         </main>
