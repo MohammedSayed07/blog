@@ -47,6 +47,27 @@
                 </div>
 
                 <section class="col-start-4 col-span-8 mt-14 space-y-3">
+                    <form method="POST" action="#" class="" class="border border-gray-200 p-6 rounded-xl">
+                        @csrf
+
+                        <header class="flex items-center">
+                            <img src="http://i.pravatar.cc/60" alt="" width="40" height="40" class="rounded-full"/>
+                            <h2 class="ml-2">
+                                Want to participate ?
+                            </h2>
+                        </header>
+
+                        <div class="mt-6 focus:">
+                            <textarea name="body" class="w-full focus:outline-none focus:ring text-sm" cols="30" rows="5" placeholder="Leave a comment!"></textarea>
+                        </div>
+
+                        <div class="flex justify-end mt-4 mb-10">
+                            <button class="bg-blue-500 px-4 py-2 rounded-xl text-white uppercase hover:bg-blue-600">
+                                POST
+                            </button>
+                        </div>
+                    </form>
+
                     @foreach($post->comments as $comment)
                         <x-post-comment :comment="$comment"/>
                     @endforeach
