@@ -46,29 +46,42 @@
                     </div>
                 </div>
 
-                <section class="col-start-4 col-span-8 mt-14 space-y-3">
-                    <form method="POST" action="#" class="" class="border border-gray-200 p-6 rounded-xl">
-                        @csrf
+                <section class="col-start-4 col-span-8 mt-14 space-y-4">
+                    @auth()
+                        <form method="POST" action="/posts/{{$post->slug}}/comments" class="border border-gray-200 p-6 rounded-xl">
+                            @csrf
+                            <header class="flex items-center">
+                                <img src="http://i.pravatar.cc/60?u={{request()->user()->id}}" alt="" width="40" height="40" class="rounded-full"/>
+                                <h2 class="ml-2">
+                                    Want to participate ?
+                                </h2>
+                            </header>
 
-                        <header class="flex items-center">
-                            <img src="http://i.pravatar.cc/60" alt="" width="40" height="40" class="rounded-full"/>
-                            <h2 class="ml-2">
-                                Want to participate ?
-                            </h2>
-                        </header>
-
-                        <div class="mt-6 focus:">
-                            <textarea name="body" class="w-full focus:outline-none focus:ring text-sm" cols="30" rows="5" placeholder="Leave a comment!"></textarea>
+                            <div class="mt-6 focus:">
+                                <textarea name="body" class="w-full focus:outline-none focus:ring text-sm"
+                                          cols="30" rows="5" placeholder="Leave a comment!" required></textarea>
+                            </div>
+                            @error('body')
+                            <span class="text-red-500 text-xs">
+                                {{ $message }}
+                            </span>
+                            @enderror
+                            <div class="flex justify-end mt-4">
+                                <button class="bg-blue-500 px-4 py-2 rounded-xl text-white uppercase hover:bg-blue-600">
+                                    POST
+                                </button>
+                            </div>
+                        </form>
+                    @else
+                        <div>
+                            <p class="mb-10 text-center">
+                                <a href="/login" class="hover:underline">Log in</a>
+                                or <a href="/register" class="hover:underline">Signup</a> to leave a comment!
+                            </p>
                         </div>
+                    @endauth
 
-                        <div class="flex justify-end mt-4 mb-10">
-                            <button class="bg-blue-500 px-4 py-2 rounded-xl text-white uppercase hover:bg-blue-600">
-                                POST
-                            </button>
-                        </div>
-                    </form>
-
-                    @foreach($post->comments as $comment)
+                    @foreach($post->comments()->with('author')->get() as $comment)
                         <x-post-comment :comment="$comment"/>
                     @endforeach
 
