@@ -13,7 +13,7 @@
                 </div>
                 <div class="mt-4">
                     <a href="/posts/{{ $post->slug }}">
-                        <h1 class="text-3xl">
+                        <h1 class="text-3xl truncate" title="{{ $post->title }}">
                             {{ $post->title }}
                         </h1>
                     </a>                    <span class="mt-2 block text-xs text-gray-400">
@@ -22,7 +22,7 @@
                 </div>
             </header>
             <section class="mt-4 text-sm mt-2">
-                <p>
+                <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;line-clamp: 4;-webkit-box-orient: vertical;">
                     {{ $post->body }}
                 </p>
             </section>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="hidden xl:block">
-                    <a class="text-xs font-semibold bg-gray-200 rounded-full px-8 mr-1 py-2" href="#">
+                    <a class="text-xs font-semibold bg-gray-200 rounded-full px-8 mr-1 py-2" href="/posts/{{ $post->slug }}">
                         Read More
                     </a>
                 </div>

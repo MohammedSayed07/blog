@@ -8,14 +8,11 @@
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-2 lg:mt-0">
                 <div class="space-x-2">
-                    <a class="text-blue-300 border border-blue-300 px-3 py-1 rounded-full uppercase font-semibold text-xs"
-                       href="/categories/{{ $post->category->slug }}">
-                        {{ $post->category->name }}
-                    </a>
+                    <x-category-button :category="$post->category"/>
                 </div>
                 <div class="mt-4">
                     <a href="/posts/{{ $post->slug }}">
-                        <h1 class="text-3xl">
+                        <h1 class="text-3xl truncate max-w-lg" title="{{ $post->title }}">
                             {{ $post->title }}
                         </h1>
                     </a>
@@ -25,7 +22,7 @@
                 </div>
             </header>
             <section class="text-sm mt-2">
-                <p>
+                <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5;line-clamp: 5;-webkit-box-orient: vertical;">
                     {{ $post->body }}
                 </p>
             </section>
@@ -44,7 +41,7 @@
                     </div>
                 </div>
                 <div class="hidden lg:block">
-                    <a class="text-xs font-semibold bg-gray-200 rounded-full px-8 mr-1 py-2" href="">
+                    <a class="text-xs font-semibold bg-gray-200 rounded-full px-8 mr-1 py-2" href="/posts/{{ $post->slug }}">
                         Read More
                     </a>
                 </div>
