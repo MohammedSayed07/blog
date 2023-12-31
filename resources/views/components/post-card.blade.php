@@ -4,7 +4,7 @@
     {{ $attributes->merge(['class' => 'transition-all duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
     <div class="px-5 py-6">
         <div class="mr-8">
-            <img class="rounded-xl" src="/images/blog-photo.jpg" alt="blog-photo"/>
+            <img class="rounded-xl" src="{{ asset('storage/' . $post->thumbnail) }}" alt="blog-photo"/>
         </div>
         <div>
             <header class="mt-4">

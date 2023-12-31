@@ -3,7 +3,7 @@
         <main class="max-w-6xl mx-auto mt-20">
             <article class="lg:grid lg:grid-cols-12 gap-x-10">
                 <div class="col-span-4 text-center">
-                    <img class="rounded-2xl" src="/images/blog-photo.jpg" alt="photo" />
+                    <img class="rounded-2xl" src="{{ asset('storage/' . $post->thumbnail) }}" alt="photo" />
 
                     <span class="mt-4 block text-xs text-gray-400">
                     Published <time>{{ $post->created_at->diffForHumans() }}</time>

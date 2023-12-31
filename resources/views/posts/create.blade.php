@@ -1,7 +1,7 @@
 <x-layout>
     <section class="px-5 py-2">
         <main class="max-w-xl m-auto shadow border border-gray-100 p-8">
-            <form method="POST" action="/admin/posts" class="space-y-3">
+            <form method="POST" action="/admin/posts" class="space-y-3" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label class="block uppercase text-sm"
@@ -25,6 +25,20 @@
                     <input class="border border-gray-400 w-full p-2"
                               type="text" name="slug" id="slug" required value="{{ old('slug') ?? '' }}"/>
                     @error('slug')
+                    <p class="text-red-500 text-xs mt-2">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                </div>
+
+                <div>
+                    <label class="block uppercase mb-1 text-sm"
+                           for="thumbnail">
+                        Thumbnail
+                    </label>
+                    <input class="border border-gray-400 w-full p-2"
+                           type="file" name="thumbnail" id="thumbnail" required value="{{ old('slug') ?? '' }}"/>
+                    @error('thumbnail')
                     <p class="text-red-500 text-xs mt-2">
                         {{ $message }}
                     </p>

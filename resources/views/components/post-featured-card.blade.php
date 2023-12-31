@@ -3,7 +3,7 @@
 <article class="transition-all duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
     <div class="lg:flex lg:px-5 lg:py-6">
         <div class="flex-1 lg:mr-8">
-            <img class="rounded-xl" src="/images/blog-photo.jpg" alt="blog-photo"/>
+            <img class="rounded-xl" src="{{ asset('storage/' . $post->thumbnail) }}" alt="blog-photo"/>
         </div>
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-2 lg:mt-0">
