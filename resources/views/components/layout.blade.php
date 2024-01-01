@@ -33,7 +33,23 @@
                     Log in
                 </a>
             @else
-                <form method="POST" action="/logout">
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase">
+                            Welcome, {{ auth()->user()->name }}!
+                        </button>
+                    </x-slot>
+
+                    <x-dropdown-item href="#">
+                        Dashboard
+                    </x-dropdown-item>
+
+                    <x-dropdown-item href="/admin/posts/create" active="{{ request()->is('admin/posts/create') }}">
+                        New Post
+                    </x-dropdown-item>
+                </x-dropdown>
+
+                <form method="POST" action="/logout" class="ml-2">
                     @csrf
                     <button class="transition-all duration-300 text-xs font-bold uppercase px-2 py-2 border border-black border-opacity-0 hover:border-opacity-100 rounded-2xl">
                         Log Out

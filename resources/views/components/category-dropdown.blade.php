@@ -1,4 +1,4 @@
-<x-dropdown>
+<x-dropdown class="w-full">
     <x-slot name="trigger">
         <button class="w-full py-3 pr-16 pl-4 text-sm font-semibold lg:inline-flex block text-left"
                 @click.outside="show = false">

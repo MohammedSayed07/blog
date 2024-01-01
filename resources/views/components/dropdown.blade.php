@@ -1,6 +1,6 @@
 @props(['trigger'])
 
-<div x-data="{ show: false }" class="w-full">
+<div x-data="{ show: false }" {{ $attributes(['class' => 'relative']) }}>
     <div @click="show = !show">
         {{ $trigger }}
     </div>
