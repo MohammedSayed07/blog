@@ -6,9 +6,8 @@
            name="{{ $name }}"
            id="{{ $name }}"
            placeholder="{{ ucwords($name) }}"
-           value="{{ old($name) ?? '' }}"
-           {{ $attributes }}
-           required/>
+           {{ $attributes(['value'=>old($name)]) }}
+           />
 
     <x-form.error name="{{ $name }}"/>
 </div>

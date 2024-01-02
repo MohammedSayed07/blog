@@ -9,7 +9,7 @@
             <p class="text-lg font-bold">
                 Links
             </p>
-            <ul class="space-y-2">
+            <ul class="mt-2">
                 <li>
                     <a class="transition-colors duration-300 text-xs md:text-lg hover:text-blue-600
                     {{ request()->is('admin/posts') ? 'text-blue-600' : '' }}"

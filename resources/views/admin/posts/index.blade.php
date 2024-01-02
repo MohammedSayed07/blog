@@ -23,9 +23,19 @@
                                             </span>
                                         </td>
                                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                            <a href="#" class="text-gray-900 whitespace-no-wrap hover:text-blue-600 hover:underline">
+                                            <a href="/admin/posts/{{ $post->id }}/edit" class="text-gray-900 whitespace-no-wrap hover:text-blue-600 hover:underline">
                                                 Edit
                                             </a>
+                                        </td>
+                                        <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                            <form method="POST" action="/admin/posts/{{ $post->id }}">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button class="transition-all duration-300 text-red-500 hover:underline hover:text-red-700">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

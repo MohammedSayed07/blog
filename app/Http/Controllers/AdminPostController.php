@@ -39,4 +39,36 @@ class AdminPostController extends Controller
 
         return redirect('/');
     }
+
+    public function edit(Post $post)
+    {
+        return view('admin.posts.edit',[
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
+    }
+
+    public function update(Post $post)
+    {
+        $attributes = request()->validate([
+            'title' => ['required'],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
+            'thumbnail' => ['image'],
+            'body' => ['required'],
+            'category_id' => ['required' , Rule::exists('categories', 'id')]
+        ]);
+        if (isset($attributes['thumbnail']))
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+
+        $post->update($attributes);
+
+        return back()->with('success', 'Post Updated');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return back()->with('success', 'Post deleted!');
+    }
 }
