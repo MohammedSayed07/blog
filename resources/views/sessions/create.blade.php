@@ -9,9 +9,9 @@
                     <form method="POST" class="space-y-4 md:space-y-6" action="/login">
                         @csrf
 
-                        <x-form.input name="email" type="email" />
+                        <x-form.input name="email" type="email" autocomplete="username"/>
 
-                        <x-form.input name="password" type="password" />
+                        <x-form.input name="password" type="password" autocomplete="current-password"/>
 
                         <x-button class="w-full">
                             Login

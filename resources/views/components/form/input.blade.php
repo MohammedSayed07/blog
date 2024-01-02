@@ -2,7 +2,7 @@
 <div>
     <x-form.label name="{{ $name }}"/>
 
-    <input class="border border-gray-400 w-full p-2 rounded-lg"
+    <input class="border border-gray-200 w-full p-2 rounded"
            name="{{ $name }}"
            id="{{ $name }}"
            placeholder="{{ ucwords($name) }}"
