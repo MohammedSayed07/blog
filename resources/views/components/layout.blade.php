@@ -40,13 +40,15 @@
                         </button>
                     </x-slot>
 
-                    <x-dropdown-item href="/admin/posts/create" active="{{ request()->is('admin/posts/create') }}">
-                        New Post
-                    </x-dropdown-item>
+                    @if(auth()->user()->can('admin'))
+                        <x-dropdown-item href="/admin/posts/create" active="{{ request()->is('admin/posts/create') }}">
+                            New Post
+                        </x-dropdown-item>
 
-                    <x-dropdown-item href="/admin/posts" active="{{ request()->is('admin/posts') }}">
-                        Manage Posts
-                    </x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts" active="{{ request()->is('admin/posts') }}">
+                            Manage Posts
+                        </x-dropdown-item>
+                    @endif
 
                     <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">
                         Logout
